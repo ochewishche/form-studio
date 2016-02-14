@@ -19,8 +19,8 @@ angular.module('ngDock', [])
             if (pos != "top") r.bottom = s.bottom; else { r.bottom = 'auto'; }
         }
         function decreaseSize($element, pos, s) {
-            if ("top|bottom".indexOf(pos) != -1) size = $element.outerHeight(true);
-            if ("left|right".indexOf(pos) != -1) size = $element.outerWidth(true);
+            if ("top|bottom".indexOf(pos) != -1) size = $($element).outerHeight(true);
+            if ("left|right".indexOf(pos) != -1) size = $($element).outerWidth(true);
             if (pos == "bottom") s.bottom += size;
             if (pos == "left")   s.left   += size;
             if (pos == "right")  s.right  += size;
@@ -36,6 +36,10 @@ angular.module('ngDock', [])
             removeClasses($element);
             setPosition(r, s, pos);
             $element.addClass("dock-" + pos);
+            r.top = r.top + 'px';
+            r.left = r.left + 'px';
+            r.right = r.right + 'px';
+            r.bottom = r.bottom + 'px';
             $element.css(r);
             decreaseSize($element, pos, s);
         }
@@ -108,7 +112,7 @@ angular.module('ngDock', [])
   })
   .directive("dockResizable", function(dock) {
     function enableResize($element, dp) {
-      $element.resizable({
+      $($element).resizable({
         handles: dock.handlesByDock[dp]
       });
     }
