@@ -15,6 +15,7 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link href="bower_components/angular-resizable/angular-resizable.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap-vertical-tabs/bootstrap.vertical-tabs.min.css" rel="stylesheet" />
     <!-- custom app styles  -->
     <link rel="stylesheet" href="app.css">
 </head>
@@ -43,10 +44,11 @@
                     </div>
                     <button type="submit" class="btn btn-success">Sign in</button>
                 </form>
-            </div><!--/.navbar-collapse -->
+            </div>
+            <!--/.navbar-collapse -->
         </div>
     </nav>
-<main>
+    <main>
     <!--<nav resizable r-directions="['right']">
         <span class="icon-big icon_expand-1"></span>
         <br/><br/>
@@ -65,8 +67,53 @@
 
     <div class="content">
         <div class="row">
-            <section id="one" resizable r-directions="['right']" r-flex="true">
-                <p>Works with flexbox.</p>
+            <section id="one" resizable r-directions="['right']" r-flex="true" ng-controller="rightSideBarCtrl" ng-class="{collapsed: 'collapsed'}">                
+                <ul class="nav nav-tabs tabs-left sideways" style="width: 42px; position: absolute;">
+                    <li class="active"><a style="white-space:nowrap;" href="#home-r" data-toggle="tab">Tokens Search</a></li>
+                    <li><a href="#profile-r" style="white-space:nowrap;" data-toggle="tab">FlowChart</a></li>    
+                </ul>                
+                <div class="panel panel-default" style=" margin: 2px; width: auto; margin-left: 44px;" ng-hide="collapsed" >
+                    <div class="panel-heading">Tokens Search
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="panel-body">
+                      <input type="text" class="form-control" id="exampleInputSearch" placeholder="Search">
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Description</th>
+                            </tr>        
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>P0234</td>
+                                <td>Client Name</td>
+                            </tr>
+                            <tr>
+                                <td>P0234</td>
+                                <td>Client Name</td>
+                            </tr>
+                            <tr>
+                                <td>P0234</td>
+                                <td>Client Name</td>
+                            </tr>
+                            <tr>
+                                <td>P0234</td>
+                                <td>Client Name</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <div class="panel panel-default" style=" margin: 2px; width: auto; margin-left: 44px;" ng-hide="collapsed" >
+                    <div class="panel-heading">Flow Chart
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="panel-body">
+                      Coming soon ...
+                    </div>                    
+                </div>
             </section>
             <section id="two">
                 <p>2</p>
@@ -85,34 +132,32 @@
         </div>-->
     </div>
 </main>
-<footer>
-    <span>
-            Made with <span class="icon icon_coffee"></span> by
+    <footer>
+        <span>Made with <span class="icon icon_coffee"></span>by
             <a href="http://codepen.io/Reklino/" target="_blank">
                 <span class="icon icon_jacob"></span>
             </a>
         </span>
-    <span style="float: right">
-            <a href="https://github.com/Reklino/angular-resizable" target="_blank">
-                Fork it on GitHub <span class="icon icon_code"></span>
+        <span style="float: right">
+            <a href="https://github.com/Reklino/angular-resizable" target="_blank">Fork it on GitHub <span class="icon icon_code"></span>
             </a>
         </span>
-</footer>
+    </footer>
 
-<!-- bower components -->
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="bower_components/angular-resizable/angular-resizable.min.js"></script>
+    <!-- bower components -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-resizable/angular-resizable.min.js"></script>
 
-<!-- custom styles -->
-<script src="app.js"></script>
-<script src="view1/view1.js"></script>
-<script src="view2/view2.js"></script>
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
+    <!-- custom styles -->
+    <script src="app.js"></script>
+    <script src="view1/view1.js"></script>
+    <script src="view2/view2.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 </body>
 </html>
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -12,15 +12,15 @@ angular.module('myApp.view1', ['ngRoute'])
 .controller('View1Ctrl', [function() {
 
 }])
-.controller('sampleController', function ($scope) {
-    $scope.div2 = {};
-    $scope.div2.dock = 'left';
-    $scope.toggleLeftRight = function () {
-        if ($scope.div2.dock == 'left')
-            $scope.div2.dock = 'right';
-        else
-            $scope.div2.dock = 'left';
-    };
+.controller('rightSideBarCtrl', function ($scope) {    
+    $scope.collapsed = true;
+    $scope.collapse = function () {
+        $scope.collapsed = true;
+    }
+
+    $scope.expand = function () {
+        $scope.collapsed = false;
+    }
 });
 
 ;

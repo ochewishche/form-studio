@@ -148,7 +148,6 @@ main {
 section {
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 1.25em 1.75em;
   background: #ddd;
   border: 7px solid #fff;
   -webkit-box-flex: 1;
@@ -168,6 +167,9 @@ section.resizable {
   background: #7bd389;
   color: #2d883c;
 }
+
+    #one.collapsed {
+    }
 
 #two {
   background: #aedcc0;
