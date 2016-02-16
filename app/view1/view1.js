@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -12,15 +12,5 @@ angular.module('myApp', ['ngRoute'])
 .controller('View1Ctrl', [function() {
 
 }])
-.controller('rightSideBarCtrl', function ($scope) {    
-    $scope.collapsed = true;
-    $scope.collapse = function () {
-        $scope.collapsed = true;
-    }
-
-    $scope.expand = function () {
-        $scope.collapsed = false;
-    }
-});
 
 ;
