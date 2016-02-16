@@ -12,7 +12,7 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
 
-angular.module('myApp').controller('rightSideBarCtrl', function ($scope) {
+angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
 
     $scope.tabs = {
         FlowChart: 0,
@@ -24,17 +24,23 @@ angular.module('myApp').controller('rightSideBarCtrl', function ($scope) {
     $scope.collapsed = false;
     $scope.collapse = function () {
         $scope.collapsed = true;
+        $scope.directions = [];
     }
 
     $scope.expand = function () {
         $scope.collapsed = false;
+        $scope.directions = ['right'];
     }
 
     $scope.switchToFlowChart = function() {
         $scope.selectedTab = $scope.tabs.FlowChart;
+        $scope.expand();
     }
 
     $scope.switchToTokenSearch = function () {
         $scope.selectedTab = $scope.tabs.TokenSearch;
+        $scope.expand();
     }
+
+    $scope.directions = ['right'];
 })

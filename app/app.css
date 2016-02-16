@@ -76,15 +76,9 @@ html, body {
   overflow: hidden;
 }
 
-nav {
-  /*position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 2.5em 1.75em;
-  background: #fff;
-  width: 260px;
-  max-width: 300px;
-  min-width: 165px;*/
+nav.navbar {
+  margin-bottom:0px;
+  border-radius:0;
 }
 
 main {
@@ -156,6 +150,7 @@ section {
           flex: 1;
   min-width: 30px;
 }
+
 section.resizable {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 300px;
@@ -163,13 +158,48 @@ section.resizable {
           flex: 0 0 300px;
 }
 
-#one {
-  background: #7bd389;
-  color: #2d883c;
+section.left-side-bar {
+  /*background: #7bd389;
+  color: #2d883c;*/
+
+
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: stretch; 
+  align-content: stretch; 
+  flex-basis: 50%;
 }
 
-    #one.collapsed {
+    section.left-side-bar.collapsed {
+        flex-basis: 58px !important;
     }
+
+    section.left-side-bar ul.nav-tabs{
+        width: 42px; 
+        position: absolute;
+    }
+
+        section.left-side-bar ul.nav-tabs a {
+            white-space:nowrap;
+        }
+
+    section.left-side-bar .panel {
+        margin: 2px; 
+        width: auto; 
+        margin-left: 44px; 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: flex-start; 
+        align-items: stretch; 
+        align-content: stretch;
+    }
+
+        section.left-side-bar .panel .panel-body {
+            flex: 1 1 0;
+            overflow-y:scroll;
+        }
 
 #two {
   background: #aedcc0;
