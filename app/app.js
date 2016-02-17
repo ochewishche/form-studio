@@ -21,7 +21,7 @@ angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
 
     $scope.selectedTab = $scope.tabs.TokenSearch;
 
-    $scope.collapsed = false;
+    $scope.collapsed = true;
     $scope.collapse = function () {
         $scope.collapsed = true;
         $scope.directions = [];

@@ -76,10 +76,35 @@ html, body {
   overflow: hidden;
 }
 
+/*** Navigation Bar *****/
+
 nav.navbar {
   margin-bottom:0px;
   border-radius:0;
 }
+
+nav.navbar .project-title {
+    line-height: 50px; 
+    font-family: fantasy; 
+    line-height: 50px;
+}
+nav.navbar .project-title .project-logo {
+    border-radius: 0px;
+}
+nav.navbar .project-title .navbar-link {
+    font-size: 20px; 
+    margin-left: 5px;
+}
+
+nav.navbar .main-menu ul {
+    margin-left:30px;
+}
+
+nav.navbar .user-info {
+    line-height: 50px;
+}
+
+/*** end of Navigation Bar *****/
 
 main {
   display: -webkit-box;
@@ -175,6 +200,10 @@ section.left-side-bar {
         flex-basis: 58px !important;
     }
 
+    section.left-side-bar.collapsed .rg-right {
+        display: none;
+    }
+
     section.left-side-bar ul.nav-tabs{
         width: 42px; 
         position: absolute;
@@ -201,19 +230,145 @@ section.left-side-bar {
             overflow-y:scroll;
         }
 
-#two {
-  background: #aedcc0;
-  color: #49a86e;
+        section.left-side-bar .flow-chart-panel {
+            margin: 2px; 
+            width: auto; 
+            margin-left: 44px;
+        }
+
+section.doc-panel {
+    overflow: scroll; 
+    background-color: #f1f1f1;
 }
 
-#three {
-  background: #38e4ae;
-  color: #107354;
+section.doc-panel .doc-panel-skeleton {
+    position: relative; 
+    width: 100%; 
+    height: 100%;
 }
 
-#four {
-  background: url(http://publicdomainarchive.com/wp-content/uploads/2014/12/public-domain-images-free-stock-photos-high-quality-resolution-downloads-public-domain-archive-7-1000x665.jpg);
+    section.doc-panel .doc-panel-skeleton .hz-ruler {
+        width: 100%;
+        height: 20px;
+        background-image: url(components/img/hz-rule.png);
+        background-repeat: no-repeat;
+        background-position: left top;
+    }
+
+    section.doc-panel .doc-panel-skeleton .vt-ruler {
+        width: 20px; 
+        height: 100%; 
+        background-image: url(components/img/vt-rule.png); 
+        background-repeat: no-repeat; 
+        background-position: left -1px; 
+        vertical-align: top;
+    }
+
+    section.doc-panel .doc-panel-skeleton .document-container {
+        padding: 30px;
+    }
+
+    section.doc-panel .doc-panel-skeleton .document-container img {
+        box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25); 
+        margin-right: 30px;
+    }
+
+section.right-side-bar {
+    display: flex;
+    flex-direction: column; 
+    flex-basis: 500px;
 }
+
+section.right-side-bar .toolbox-section {
+    border: none; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch; 
+    align-content: stretch; 
+    justify-content: flex-start;
+}
+
+
+.properties-section {
+    border: none; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch; 
+    align-content: stretch; 
+    justify-content: flex-start; 
+    border-top: 14px solid transparent; 
+    background-color: white; 
+    border-radius: 0;
+}
+
+.properties-section .panel {
+    flex: 1; 
+    margin-bottom: 0;
+}
+
+
+.toolbox-section > .panel {
+    flex: 1; margin-bottom: 0;
+}
+
+.toolbox-panel {
+    
+}
+
+.toolbox-panel .delimeter {
+        height: 1px;
+        margin: 9px 1px;
+        overflow: hidden;
+        background-color: #e5e5e5;
+        border-bottom: 1px solid #ddd;
+        display: block;
+    }
+
+.toolbox-panel .toolbox-panel-group {
+    list-style-type: none;
+    clear: both; 
+    overflow: hidden;
+}
+
+.toolbox-panel .toolbox-panel-group .toolbox-item {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    float: left;
+    margin-right: 7px;
+}
+
+    .toolbox-panel .toolbox-panel-group.toolbox-item:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+    }
+
+    .toolbox-panel .toolbox-panel-group .toolbox-item .glyphicon-class {
+        display: block;
+        white-space: nowrap;
+    }
+
+
 
 footer {
   background: white;

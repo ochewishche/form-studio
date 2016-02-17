@@ -25,15 +25,15 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div style="">
-                <div class="navbar-header" style="line-height: 50px; font-family: fantasy; line-height: 50px;">
-                    <button type="button" class="btn btn-default btn" style="border-radius: 0px;">
+                <div class="navbar-header project-title">
+                    <button type="button" class="btn btn-default btn project-logo" >
                         <span class="glyphicon glyphicon-object-align-left" aria-hidden="true"></span>
                     </button>
-                    <span class="navbar-link" style="font-size: 20px; margin-left: 5px;">Rubick</span>
+                    <span class="navbar-link">Rubiks</span>
                 </div>
                 <div class="">
-                    <div id="navbar" class="navbar-menu">
-                        <ul class="nav navbar-nav" style="margin-left:30px;">
+                    <div id="navbar" class="navbar-menu main-menu">
+                        <ul class="nav navbar-nav" >
                             <li class="active"><a href="#">File <span class="sr-only">(current)</span></a></li>
                             <li><a href="javascript:void(0);">Edit</a></li>
                             <li><a href="#">Questions</a></li>
@@ -43,22 +43,10 @@
                             <li><a href="#">Reports</a></li>
                             <li><a href="#">Windows</a></li>
                             <li><a href="#">Help</a></li>
-                            <!--<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">File</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
                         </ul>
-                    </li>-->
-                        </ul>
-
                     </div>
                 </div>
-                <div class="pull-right navbar-link" style="line-height: 50px;">
+                <div class="pull-right navbar-link user-info">
                     <div class="dropdown">
                         <span class="dropdown-toggle">
                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -75,25 +63,9 @@
         </div>
     </nav>
     <main>
-        <!--<nav resizable r-directions="['right']">
-            <span class="icon-big icon_expand-1"></span>
-            <br/><br/>
-            <h1>
-                Angular
-                Resizable
-            </h1>
-            <p>
-                A teensy weensy directive for creating resizable containers.
-            </p>
-        </nav>-->
-
-
-
-
-
         <div class="content">
             <div class="row" ng-controller="leftSideBarCtrl">
-                <section id="one" class="left-side-bar" resizable r-directions="directions" r-flex="true" ng-class="{ 'collapsed': collapsed }" style="">
+                <section id="one" class="left-side-bar" resizable r-directions="directions" r-flex="true" ng-class="{ 'collapsed': collapsed }" >
                     <ul class="nav nav-tabs tabs-left sideways">
                         <li ng-class="{'active' : selectedTab == tabs.TokenSearch }">
                             <a style="white-space: nowrap;" href="javascript:void(0);" data-toggle="tab" ng-click="switchToTokenSearch()">Token Search</a>
@@ -186,7 +158,7 @@
                         </div>
 
                     </div>
-                    <div class="panel panel-default" style=" margin: 2px; width: auto; margin-left: 44px;" ng-hide="collapsed || selectedTab != tabs.FlowChart">
+                    <div class="panel panel-default flow-chart-panel" ng-hide="collapsed || selectedTab != tabs.FlowChart">
                         <div class="panel-heading">
                             Flow Chart
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -196,43 +168,97 @@
                         </div>
                     </div>
                 </section>
-                <section id="two">
-                    <p>2</p>
+                <section class="doc-panel">
+                    <table class="doc-panel-skeleton">
+                        <tr>
+                            <td class="hz-ruler" colspan="2" ></td>
+                        </tr>
+                        <tr>
+                            <td class="vt-ruler" style="">
+                                <div class="vt-ruler" ></div>
+                            </td>
+                            <td>
+                                <div class="document-container" >
+                                    <img src="components/img/Loan_Application_-_AVANA_Capital-rev1_Page_01.png" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </section>
-                <section id="three" class="right-side-bar" resizable r-directions="['left']" r-flex="true" style="display: flex;flex-direction: column;">
-                    
-                <section resizable r-directions="['bottom']" r-flex="true">
-                    <p>
-                        Completely seperates <strong>layout logic</strong> from <strong>resize logic</strong>. All layout logic must be done by you in the CSS (as it should be).
-                    </p>
-                </section>
-                <section id="four">4</section>
-            
+                <section class="right-side-bar" resizable r-directions="['left']" r-flex="true" >
+
+                    <section class="toolbox-section" resizable r-directions="['bottom']" r-flex="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Tools
+                            </div>
+                            <div class="panel-body toolbox-panel">
+                                <ul class="toolbox-panel-group">
+                                    <li class="toolbox-item">
+                                        <span class="glyphicon glyphicon-unchecked" aria-hidden="true" title="Text field"></span>
+                                    </li>
+                                    <li class="toolbox-item">
+                                        <span class="glyphicon glyphicon-check" aria-hidden="true" title="multiple choise"></span>
+                                    </li>
+                                </ul>
+                                <div class="delimeter"></div>
+                                <ul class="toolbox-panel-group">
+                                    <li class="toolbox-item">
+                                        <span class="glyphicon glyphicon-indent-right" aria-hidden="true" title="Align right"></span>
+                                    </li>
+                                    <li class="toolbox-item">
+                                        <span class="glyphicon glyphicon-indent-left" aria-hidden="true" title="Align left"></span>
+                                    </li>
+                                    <li class="toolbox-item">
+                                        <span class="glyphicon glyphicon-text-width" aria-hidden="true" title="Align width"></span>
+                                    </li>
+                                    <li class="toolbox-item">
+                                        <span class="glyphicon glyphicon-text-height" aria-hidden="true" title="Align height"></span>
+                                    </li>
+                                </ul>
+                                <div class="delimeter"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="properties-section">
+                        <div class="panel panel-default" >
+                            <div class="panel-heading">
+                                Control Properties
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Property
+                                            </th>
+                                            <th>
+                                                Value
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Token</td>
+                                            <td>AL234</td>
+                                        </tr>
+                                    <tr>
+                                        <td>Layer</td>
+                                        <td>Layer 1</td>
+                                    </tr>
+                                        <tr>
+                                            <td>Font</td>
+                                            <td>Times New Roman</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
                 </section>
             </div>
-            <!--<div class="row">
-                <section id="three" resizable r-directions="['right']" r-flex="true">
-                    <p>
-                        Completely seperates <strong>layout logic</strong> from <strong>resize logic</strong>. All layout logic must be done by you in the CSS (as it should be).
-                    </p>
-                </section>
-                <section id="four">4</section>
-            </div>-->
         </div>
     </main>
-    <footer>
-        <span>
-            Made with <span class="icon icon_coffee"></span>by
-            <a href="http://codepen.io/Reklino/" target="_blank">
-                <span class="icon icon_jacob"></span>
-            </a>
-        </span>
-        <span style="float: right">
-            <a href="https://github.com/Reklino/angular-resizable" target="_blank">
-                Fork it on GitHub <span class="icon icon_code"></span>
-            </a>
-        </span>
-    </footer>
 
     <!-- bower components -->
     <script src="bower_components/angular/angular.js"></script>
