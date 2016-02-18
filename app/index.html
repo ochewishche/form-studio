@@ -168,22 +168,29 @@
                         </div>
                     </div>
                 </section>
-                <section class="doc-panel">
+                <section class="doc-panel" >
                     <table class="doc-panel-skeleton">
                         <tr>
-                            <td class="hz-ruler" colspan="2" ></td>
+                            <td class="hz-ruler" colspan="2"></td>
                         </tr>
                         <tr>
                             <td class="vt-ruler" style="">
-                                <div class="vt-ruler" ></div>
+                                <div class="vt-ruler"></div>
                             </td>
-                            <td>
-                                <div class="document-container" >
-                                    <img src="components/img/Loan_Application_-_AVANA_Capital-rev1_Page_01.png" />
+                            <td style="position: relative">
+                                <div class="document-container">
+                                    <img src="components/img/Loan_Application_-_AVANA_Capital-rev1_Page_01.png"/>
                                 </div>
+                                <draw-layer ></draw-layer>
+                                <!--<svg class="box" style="position: absolute; top: 0; width: 100%; height: 100%; background-color: transparent;">
+                                    <circle class="draggableCircle" cx="225" cy="117" r="25" style="fill: black;"></circle>
+                                </svg>-->
                             </td>
                         </tr>
                     </table>
+                    <!--<svg class="box" style="position: absolute; top: 0;">
+                        <circle class="draggableCircle" cx="225" cy="117" r="25" style="fill: black;"></circle>
+                    </svg>-->
                 </section>
                 <section class="right-side-bar" resizable r-directions="['left']" r-flex="true" >
 
@@ -266,6 +273,8 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-resizable/angular-resizable.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+
 
     <!-- custom styles -->
     <script src="app.js"></script>
