@@ -277,6 +277,7 @@ section.right-side-bar {
     display: flex;
     flex-direction: column; 
     flex-basis: 500px;
+    /*flex: 1;*/
 }
 
 section.right-side-bar .toolbox-section {

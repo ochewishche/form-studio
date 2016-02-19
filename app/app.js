@@ -8,8 +8,8 @@ angular.module('myApp', [
   'myApp.version',
   'angularResizable'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.otherwise({ redirectTo: '/view1' });
 }]);
 
 angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
@@ -32,7 +32,7 @@ angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
         $scope.directions = ['right'];
     }
 
-    $scope.switchToFlowChart = function() {
+    $scope.switchToFlowChart = function () {
         $scope.selectedTab = $scope.tabs.FlowChart;
         $scope.expand();
     }
@@ -44,7 +44,7 @@ angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
 
     $scope.directions = ['right'];
 })
-.directive('drawLayer', [function() {
+.directive('drawLayer', [function () {
 
     function link(scope, element, attrs) {
         //element.
@@ -78,7 +78,7 @@ angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
         controller: 'drawLayerCtrl',
         templateUrl: 'draw-layer.html',
         scope: {
-            
+
         }
     };
 }])
@@ -100,15 +100,9 @@ angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
                 r: 25
             });
             update();
-    });
+        });
 
-    var drag = d3.behavior.drag()
-                 .on('dragstart', function (d, i) { d3.select(this).style('fill', 'red'); })
-                 .on('drag', function (d, i) {
-                     d3.select(this).attr('cx', d.x = d3.event.x)
-                           .attr('cy', d.y = d3.event.y);
-                 })
-                 .on('dragend', function () { d3.select(this).style('fill', 'black'); });
+   
 
     //var circle = box.selectAll('.draggableCircle')
     //                .data([{ x: ('700' / 2), y: ('700' / 2), r: 25 }, { x: ('700' / 3), y: ('700' / 3), r: 25 }])
@@ -123,6 +117,22 @@ angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
 
     var controls = [{ x: ('700' / 2), y: ('700' / 2), r: 25 }, { x: ('700' / 3), y: ('700' / 3), r: 50 }, { x: ('700' / 4), y: ('700' / 4), r: 75 }];
     var selected = null;
+
+    var drag = d3.behavior.drag()
+                .on('dragstart', function (d, i) { d3.select(this).style('fill', 'red'); })
+                .on('drag', function (d, i) {
+                    d3.select(this).attr('cx', d.x = d3.event.x)
+                          .attr('cy', d.y = d3.event.y);
+                })
+                .on('dragend', function (d, i) {
+                    //selected = {
+                    //    dataPoint: d,
+                    //    index: i
+                    //};
+                    //update();
+                    // d3.select(this).style('fill', 'blue');
+                });
+
     update();
 
     function update() {
@@ -130,24 +140,50 @@ angular.module('myApp').controller('leftSideBarCtrl', function ($scope) {
             .data(controls);
 
         // When we enter, we just want to create the rect,
+        rects.exit().remove();
         rects.enter().append('svg:circle');
 
         // We configure the rects here so the values
         // apply to it applies to both new and existing
         // rects
         rects
-          .attr('class', 'draggableCircle')
-                    .attr('cx', function (d) { return d.x; })
-                    .attr('cy', function (d) { return d.y; })
-                    .attr('r', function (d) { return d.r; })
-                    .on("mousedown", function () { d3.event.stopPropagation(); })
-                    .on("click", function () {
-                        selected = this;
-                        d3.select(this).style('fill', 'blue');
-                 d3.event.stopPropagation();
+            .attr('class', 'draggableCircle')
+            .attr('cx', function (d) { return d.x; })
+            .attr('cy', function (d) { return d.y; })
+            .attr('r', function (d) { return d.r; })
+            .on("mousedown", function () { d3.event.stopPropagation(); })
+            .on("click", function (d, i) {
+
+
+                if (selected && selected.dataPoint === d) {
+                    selected = undefined;
+                } else {
+                    selected = {
+                        dataPoint: d,
+                        index: i
+                    };
+                }
+
+                update();
+                //d3.select(this).style('fill', 'blue');
+                d3.event.stopPropagation();
             })
-                    .call(drag)
-                    .style('fill', 'black');
+            .style('fill', function (d) {
+                return (selected && d === selected.dataPoint) ? 'blue' : 'black';
+            })
+            .call(drag);
+
+        d3.select("body")
+            .on("keydown", function () {
+            if (d3.event.keyCode === 46) {
+                if (selected) {
+                    controls = _.without(controls, selected.dataPoint);
+                    selected = undefined;
+                    update();
+                }
+            }
+
+        });
     }
 
 
