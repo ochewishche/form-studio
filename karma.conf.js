@@ -11,6 +11,8 @@ module.exports = function(config){
       'app/view*/**/*.js'
     ],
 
+    singleRun: true,
+
     autoWatch : true,
 
     frameworks: ['jasmine'],
